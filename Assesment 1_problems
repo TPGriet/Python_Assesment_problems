@@ -1,1 +1,688 @@
+1.For the first 30 natural numbers follow the below conditions and obtain the output:
+1. Print Fizz if a number is divisible of 3.
+2. Print Buzz if a number is divisible of 5.
+3. Print FizzBuzz if a number is divisible of both 3 and 5.
 
+output should be printed:
+Fizz
+Buzz
+Fizz
+Fizz
+Buzz
+Fizz
+FizzBuzz
+Fizz
+Buzz
+Fizz
+Fizz
+Buzz
+Fizz
+FizzBuzz
+
+Test case example:
+---------------------------------------
+case=1
+output=Fizz
+Buzz
+Fizz
+Fizz
+Buzz
+Fizz
+FizzBuzz
+Fizz
+Buzz
+Fizz
+Fizz
+Buzz
+Fizz
+FizzBuzz
+
+PROGRAM:
+------------------------------------
+for i in range(1,31):
+    if (i%3==0 and i%5==0):
+        print('FizzBuzz')
+    elif (i%5==0):
+        print('Buzz')
+    elif(i%3==0):
+        print('Fizz')
+
+2. Arun is working in an office which is N blocks away from his house. He wants to minimize the time it takes him to go from his house to the office.
+He can either take the office cab or he can walk to the office.
+Arun's velocity is V1 m/s when he is walking. The cab moves with velocity V2 m/s but whenever he calls for the cab, it always starts from the office, covers N blocks, collects Arun and goes back to the office.
+The cab crosses a total distance of N meters when going from office to Arun's house and vice versa, whereas Arun covers a distance of (√2*N) while walking.
+Help Arun to find whether he should walk or take a cab to minimize the time.
+
+Input Format:
+A single line containing three integer numbers N, V1, and V2 separated by a space.
+Output Format:
+Print 'Walk' or 'Cab' accordingly
+Constraints:
+1<=V1, V2 <=100
+1<=N<=200
+
+TEST CASE EXAMPLE:
+--------------------------
+case = 1
+input=5 10 15
+output=Cab
+
+case=2
+Input=2 10 14
+Output=Walk
+
+PROGRAM:
+------------------------
+N,V1,V2=input().split()
+t1 = int(N)/((2**(.5))*int(V1))
+t2 = int(N)/(int(V2))
+if t1 < t2:
+    print('Walk')
+elif t1>t2:
+    print('Cab')
+
+3. You are given a number A which contains only digits 0's and 1's. Your task is to make all digits same by just flipping one digit (i.e. 0 to 1 or 1 to 0 ) only. If it is possible to make all the  digits same by just flipping one digit then print 'YES' else print 'NO'.
+
+Input Format:
+The first line contains a number made up of 0's and 1's.
+Output Format:
+Print 'YES' or 'NO' accordingly without quotes.
+
+TEST CASE EXAMPLE:
+--------------------------------
+case=1
+input=10000
+output=YES
+
+case=2
+input=1010
+output=NO
+
+PROGRAM:
+---------------------------
+a=input()
+b=a.count('1')
+c=a.count('0')
+if(b==1 or c==1):
+    print('YES')
+else:
+    print('NO')
+
+4. Bob has given a word which consists of numbers(0-9) and alphabets(a-z,A-Z)
+now he wants to add only numbers from the word. Pls help him to do so. 
+
+TEST CASE EXAMPLE:
+-----------------------------
+case = 1
+input=a100b1c200
+output=301
+
+case = 2
+input=a7000
+output=7000
+
+case = 3
+input=800
+output=800
+
+case = 4
+input=a1b0c0d1
+output=2
+
+case = 5
+input=a000bccc1ddd99
+output=100
+
+PROGRAM:
+------------------------------------
+import re
+def stringadd(string):
+    numbers = re.findall(r'\d+', string)
+    total = sum(map(int, numbers))
+    return total
+
+
+var = input()
+result = stringadd(var)
+print("Sum of numbers in the string:", result)
+
+5. write a program to read a string from the user and print the following pattern 
+
+Input - The input consists of one word
+Output - For the given input string print the pattern as shown in the test case
+TEST CASE EXAMPLE:
+---------------------------
+case = 1
+input=a
+output=a
+
+case = 2
+input=ab 
+output=a
+bb
+
+case = 3
+input=hello
+output =h
+ee
+lll
+llll
+ooooo
+
+case = 4
+input=welcome
+output=w
+ee
+lll
+cccc
+ooooo
+mmmmmm
+eeeeeee
+
+PROGRAM:
+------------------------------------
+string = input()
+for i in range(0,len(string)):
+    print(string[i]*(i+1))
+
+6. Write a program that prints the following pattern.
+
+5 4 3 2 1 
+4 3 2 1 
+3 2 1 
+2 1 
+1
+
+TEST CASE EXAMPLE:
+--------------------------------
+case=t1
+output=
+5 4 3 2 1 
+4 3 2 1 
+3 2 1 
+2 1 
+1
+
+PROGRAM:
+-------------------------------
+rows = 5
+for i in range(0, rows + 1):
+    for j in range(rows - i, 0, -1):
+        print(j, end=' ')
+    print()
+
+7.Take an integer as input from user using input() and write a program to find first n integers in fibonacci sequence.
+TEST CASE EXAMPLE:
+---------------------------------
+case=1
+input=5
+output=0
+1
+1
+2
+3
+
+case=2
+input=10
+output=0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+
+PROGRAM:
+-------------------
+a=int(input())
+x=0
+y=1
+print(0)
+print(1)
+for i in range(2,a):
+    sum=x+y
+    x=y
+    y=sum
+    print(sum)
+
+8.  Write a program to check whether a given positive number is a
+Harshad Number or not 
+A harshad number is an integer that is divisible by the sum of its digits. 
+For example 171 is a Harshad Number because the sum of digits is 9(1+7+1) and 171 is divisible by 9.
+TEST CASE EXAMPLE:
+------------------------------
+case=t1
+input=171
+output= harshad number
+
+case=t2
+input=153
+output= harshad number
+
+case=t3
+input=195
+output= harshad number
+
+case=t4
+input=99
+output=not a harshad number
+PROGRAM:
+---------------------------
+a=input()
+print("harshad number") if (int(a))%(sum([int(i) for i in a]))==0 else print("not a harshad number")
+
+
+9. Write a Python function to reverse a string if its length is a multiple of 4
+TEST CASE EXAMPLE:
+----------------------------
+case=t1
+input=Life
+output= efiL
+
+case=t2
+input=python
+output=python
+
+case=t3
+input=code
+output=edoc
+
+PROGRAM:
+--------------------------------
+a=input()
+print(a[::-1]) if len(a)%4==0 else print(a)
+
+10. Chef wrote some text on a piece of paper and now he wants to know how many holes are in the text.
+What is a hole? If you think of the paper as the plane and a letter as a curve on the plane, then each letter divides the plane into regions. 
+For example letters “A”, “D”, “O”, “P”, “R” divide the plane into two regions so we say these letters each have one hole. Similarly, 
+letter “B” has two holes and letters such as “C”, “E”, “F”, “K” have no holes. 
+We say that the number of holes in the text is equal to the total number of holes in the letters of the text. '''
+
+#Help Chef to determine how many holes are in the text.
+TEST CASE EXAMPLE:
+-----------------------------------------
+case=1
+input=DRINKEATCODE
+output=5
+
+case=t2
+input=arunkongi
+output=3
+
+PROGRAM:
+-----------------------------
+a1 = ["A","D","O","P","Q","R"]
+a2 = ["B"]
+
+s = input().upper()
+t = 0
+for i in s:
+    if i in a1:
+       t += 1
+    if i in a2:
+       t += 2
+print(t)
+
+11. Python program to print negative numbers in a list
+TEST CASE EXAMPLE:
+--------------------------
+case = 1
+input =[9,0,-1,4,5,-12]
+output = [-1,-12]
+
+PROGRAM:
+-----------------------------------
+def print_negative_numbers(numbers):
+    for num in numbers:
+        if num < 0:
+            print(num)
+
+# Example usage
+numbers_list = [9,0,-1,4,5,-12]
+print("Negative numbers:")
+print_negative_numbers(numbers_list)
+
+
+
+12.Write a Python program to remove characters that have odd index values in a given string.
+TEST CASE EXAMPLE:
+-------------------------------
+case=1
+input=abcdef
+output=ace
+
+case=2
+input=python
+output=pto
+
+case=3
+input=arunck
+output=auc
+
+PROGRAM:
+------------------------------
+def remove_odd_chars(input_string):
+    result = ""
+    for index in range(len(input_string)):
+        if index % 2 == 0:
+            result += input_string[index]
+    return result
+
+# Test the function
+input_string = input()
+result_string = remove_odd_chars(input_string)
+print(result_string)
+
+13.Tubby a UKG Student has given a group of letters and His madam asked to see if the group of 
+letters consists of every letter in the English Aplhabet(a-z/A-Z)
+
+print true if it contains else print false
+
+Note: The input can contain whitespaces.
+TEST CASE EXAMPLE:
+---------------------------
+case = 1
+input=Pack my box with five dozen liquor jugs
+output=true
+
+case = 2
+input=New job fix Mr Gluck's hazy TV, PDQ
+output=true 
+
+case = 3
+input=Abc Efghu IJklM nOpqrsTuv WxyZ
+output=false
+
+case = 4
+input=AbcEfghuIJklMnOpqrsTuvWxyZD
+output=true
+
+case = 5
+input=ABCDEFHI JKLMN OP ZYXWVUTSRqqqq
+output=false
+
+PROGRAM:
+-------------------------------
+import string
+alphabet = set(string.ascii_lowercase)
+input_string = input()
+print(set(input_string.lower()) >= alphabet)
+
+14. Sunder and Shiva are playing a word game where 
+shiva gives a number 'k' and word 'w' to the sunder and 
+sunder removes letters from the start and places it at the end depending on k.
+shiva has to know the new word after sunder has done with his work.
+Help him to know the new word. 
+
+TEST CASE EXAMPLE:
+------------------------------------
+
+case = 1
+input=1
+abcd
+output=bcda
+
+case = 2
+input=2
+aaaa
+output=aaaa
+
+case = 3
+input=4
+system
+output=emsyst
+
+case = 4
+Fail message="Check your program! The Hidden test case didn't match!!
+input=2
+welcome
+output=lcomewe
+
+case= 5
+input=3
+arun
+output=naru
+output=
+
+PROGRAM:
+-----------------------------------
+def move_letters(word, k):
+    for i in range(k):
+        first_letter = word[0]
+        word = word[1:] + first_letter
+    return word
+
+
+k = int(input())
+word = input()
+new_word = move_letters(word, k)
+print("New word:", new_word)
+
+15. Write a python program that asks the user to enter a list of costs of products separated by comma. 
+Then add a 18% tax to every cost and print out the new costs, each on separate lines, 
+right-justified and displayed to exactly two decimal places (ex, 122.4 should be 122.40).
+For the right-justification, assume total width as 7.
+
+Example test cases:
+-----------------------------
+case=t1
+input=235,10,56,456
+output=
+0277.30rs
+0011.80rs
+0066.08rs
+0538.08rs
+
+case=t2
+input=12,35,456,78905
+output=
+0014.16rs
+0041.30rs
+0538.08rs
+93107.90rs
+
+PROGRAM:
+---------------------------------------------
+L = eval(input())
+for x in L:
+    print('{:07.2f}rs'.format(x*1.18))
+
+
+16. Write a program that asks the user to enter a list of numbers. Then replace all the even numbers
+in the list with zeroes and print out the list and replace each odd number in the list with ones.'
+
+Example test cases:
+----------------------------
+case=t1
+input=1,2,3,4,5,1
+output=[1, 0, 1, 0, 1, 1]
+
+case=t2
+input=1,4,1,2,2,3
+output=[1, 0, 1, 0, 0, 1]
+
+PROGRAM:
+----------------------------------
+L = eval(input())
+M = []
+for i in range(len(L)):
+    if L[i] % 2 == 0:
+        M.append(0)
+    else:
+        M.append(1)
+L = M
+print(L)
+
+17. Ask the user to enter a course code, like Python 201 or Data structures 125.
+ The code consists of an alphabetic department code followed by a space and then a course number. 
+ If the course number is not in the range from 100 to 499, then output that the user’s entry is invalid.
+
+Example test cases:
+--------------------------------
+case=t1
+input=python 245
+output=Valid course
+
+case=t2
+input=data structures 345
+output=Valid course
+
+case=t3
+Fail message="check if your sub code exceeding 499"
+input=data structures 607
+output=Invalid course code
+
+PROGRAM:
+-----------------------------------
+code = input()
+num = int(code.split(' ')[-1])
+if num < 100 or num > 499:
+    print('Invalid course code')
+else:
+    print("Valid course")
+
+18. Write a program that asks the user to enter a number (an integer or a float) like 1,2,5 
+that uses commas to clarify the groups of the number.Print out the square root of that number.
+
+Example test cases:
+-----------------------------
+case=t1
+input=1,6
+output=4.00
+
+case=t2
+input=1,5,3,4
+output=39.17
+
+case=t3
+Fail message="Hidden test case didnt match"
+input=1,25
+output=11.18
+
+PROGRAM:
+--------------------------------
+from math import sqrt
+num = input()
+print("%0.2f"% (sq
+
+19. Write a python program to produce the following output based on the number of rows entered by the user.
+
+Example test cases:
+------------------------------------
+case=t1
+input=5
+output=
+A B C D E D C B A 
+A B C D   D C B A 
+A B C       C B A 
+A B           B A 
+A               A 
+
+case=t2
+input=7
+output=
+A B C D E F G F E D C B A 
+A B C D E F   F E D C B A 
+A B C D E       E D C B A 
+A B C D           D C B A 
+A B C               C B A 
+A B                   B A 
+A                       A 
+
+case=t3
+input=10
+output=
+A B C D E F G H I J I H G F E D C B A 
+A B C D E F G H I   I H G F E D C B A 
+A B C D E F G H       H G F E D C B A 
+A B C D E F G           G F E D C B A 
+A B C D E F               F E D C B A 
+A B C D E                   E D C B A 
+A B C D                       D C B A 
+A B C                           C B A 
+A B                               B A 
+A                                   A 
+PROGRAM:
+--------------------------------
+n = int(input())
+
+for i in range(n, 0, -1):
+    # Print letters in increasing order
+    for j in range(1, n + 1):
+        if j <= i:
+            print(chr(65 + j - 1), end=" ")
+        else:
+            print(" ", end=" ")
+
+    # Print letters in decreasing order
+    for j in range(n - 1, 0, -1):
+        if j <= i:
+            print(chr(65 + j - 1), end=" ")
+        else:
+            print(" ", end=" ")
+
+    print()
+
+20. Write a python program to produce the following output based on the number of rows entered by the user.
+
+Example test cases:
+-----------------------------------
+case=t1
+input=5
+output=
+A B C D E E D C B A 
+A B C D     D C B A 
+A B C         C B A 
+A B             B A 
+A                 A 
+
+
+case=t2
+input=7
+output=
+A B C D E F G G F E D C B A 
+A B C D E F     F E D C B A 
+A B C D E         E D C B A 
+A B C D             D C B A 
+A B C                 C B A 
+A B                     B A 
+A                         A 
+
+
+case=t3
+input=10
+output=
+A B C D E F G H I J J I H G F E D C B A 
+A B C D E F G H I     I H G F E D C B A 
+A B C D E F G H         H G F E D C B A 
+A B C D E F G             G F E D C B A 
+A B C D E F                 F E D C B A 
+A B C D E                     E D C B A 
+A B C D                         D C B A 
+A B C                             C B A 
+A B                                 B A 
+A                                     A 
+
+PROGRAM:
+----------------------------------------------
+rows = int(input())
+
+for i in range(rows, 0, -1):
+    # Print letters in increasing order
+    for j in range(0, i):
+        print(chr(65 + j), end=" ")
+
+    # Print spaces
+    for k in range(0, 2 * (rows - i)):
+        print("  ", end="")
+
+    # Print letters in decreasing order
+    for l in range(i - 1, -1, -1):
+        print(chr(65 + l), end=" ")
+
+    print()
+
+21. 
