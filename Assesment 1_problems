@@ -53,6 +53,8 @@ Arun's velocity is V1 m/s when he is walking. The cab moves with velocity V2 m/s
 The cab crosses a total distance of N meters when going from office to Arun's house and vice versa, whereas Arun covers a distance of (√2*N) while walking.
 Help Arun to find whether he should walk or take a cab to minimize the time.
 
+
+
 Input Format:
 A single line containing three integer numbers N, V1, and V2 separated by a space.
 Output Format:
@@ -80,6 +82,26 @@ if t1 < t2:
     print('Walk')
 elif t1>t2:
     print('Cab')
+
+
+another solution
+-------------------------
+import math
+
+# Taking input
+N, V1, V2 = map(int, input().split())
+
+# Calculate time taken for walking and for cab
+time_walk = math.sqrt(2 * N) / V1
+time_cab = N / V2
+
+# Compare times and print the result
+if time_walk <= time_cab:
+    print('Walk')
+else:
+    print('Cab')
+
+
 
 3. You are given a number A which contains only digits 0's and 1's. Your task is to make all digits same by just flipping one digit (i.e. 0 to 1 or 1 to 0 ) only. If it is possible to make all the  digits same by just flipping one digit then print 'YES' else print 'NO'.
 
