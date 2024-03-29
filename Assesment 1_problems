@@ -108,6 +108,24 @@ if(b==1 or c==1):
 else:
     print('NO')
 
+
+second solution
+----------------------
+a = input("Enter a string: ")
+
+count_1 = 0
+count_0 = 0
+
+for char in a:
+    if char == '1':
+        count_1 += 1
+    elif char == '0':
+        count_0 += 1
+
+if count_1 == 1 or count_0 == 1:
+    print('YES')
+else:
+    print('NO')
 4. Bob has given a word which consists of numbers(0-9) and alphabets(a-z,A-Z)
 now he wants to add only numbers from the word. Pls help him to do so. 
 
