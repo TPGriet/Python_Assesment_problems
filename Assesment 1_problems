@@ -64,60 +64,68 @@ else:
             print('No Buzz')
 
 
-2. Arun is working in an office which is N blocks away from his house. He wants to minimize the time it takes him to go from his house to the office.
-He can either take the office cab or he can walk to the office.
-Arun's velocity is V1 m/s when he is walking. The cab moves with velocity V2 m/s but whenever he calls for the cab, it always starts from the office, covers N blocks, collects Arun and goes back to the office.
-The cab crosses a total distance of N meters when going from office to Arun's house and vice versa, whereas Arun covers a distance of (√2*N) while walking.
-Help Arun to find whether he should walk or take a cab to minimize the time.
-
-
-
-Input Format:
-A single line containing three integer numbers N, V1, and V2 separated by a space.
-Output Format:
-Print 'Walk' or 'Cab' accordingly
-Constraints:
-1<=V1, V2 <=100
-1<=N<=200
-
-TEST CASE EXAMPLE:
---------------------------
-case = 1
+2. case = t1
 input=5 10 15
 output=Cab
 
-case=2
+case=t2
+fail message="Test case failed. Read question carefully and Re-try!
 Input=2 10 14
 Output=Walk
 
-PROGRAM:
-------------------------
-N,V1,V2=input().split()
-t1 = int(N)/((2**(.5))*int(V1))
-t2 = int(N)/(int(V2))
-if t1 < t2:
-    print('Walk')
-elif t1>t2:
-    print('Cab')
+case=t3
+input=5 10 13
+output=Walk
+
+case=t4
+fail message="Test case failed. Read question carefully and Re-try!
+input=100 30 50
+output=Cab
+
+case=t5
+input=10 15 18
+output=Walk
+
+case=t6
+input=1 1 1
+output=Walk
+
+case=t7
+input=50 90 100
+output=Walk
+
+case=t8
+grade reduction=20
+fail message="Test case failed. Read question carefully and Re-try!
+input=100 100 100
+output=Walk
+
+case=t9
+fail message="Test case failed. Read question carefully and Re-try!
+input=1 2 3
+output=Cab
+
+case=t10
+input=20 30 33
+output=Walk
+
+Program
+-------------------------------------
+# t1 = int(N)/((2**(.5))*int(V1))
 
 
-another solution
--------------------------
-import math
-
-# Taking input
+from math import sqrt
 N, V1, V2 = map(int, input().split())
 
-# Calculate time taken for walking and for cab
-time_walk = math.sqrt(2 * N) / V1
-time_cab = N / V2
+time_walk =  (sqrt(2) *N )/ V1
 
-# Compare times and print the result
+time_cab = 2*N / V2
+
+
 if time_walk <= time_cab:
     print('Walk')
 else:
     print('Cab')
-
 
 
 3. You are given a number A which contains only digits 0's and 1's. Your task is to make all digits same by just flipping one digit (i.e. 0 to 1 or 1 to 0 ) only. If it is possible to make all the  digits same by just flipping one digit then print 'YES' else print 'NO'.
