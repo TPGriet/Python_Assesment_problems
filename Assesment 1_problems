@@ -1,51 +1,68 @@
-1.For the first 30 natural numbers follow the below conditions and obtain the output:
-1. Print Fizz if a number is divisible of 3.
-2. Print Buzz if a number is divisible of 5.
-3. Print FizzBuzz if a number is divisible of both 3 and 5.
+'''
+Read two integer inputs a and b on separate lines and print the output as per condition mentioned below:
 
-output should be printed:
-Fizz
-Buzz
-Fizz
-Fizz
-Buzz
-Fizz
-FizzBuzz
-Fizz
-Buzz
-Fizz
-Fizz
-Buzz
-Fizz
-FizzBuzz
+Print the following output for each integer between the a and b:
 
-Test case example:
----------------------------------------
-case=1
-output=Fizz
-Buzz
-Fizz
-Fizz
-Buzz
-Fizz
-FizzBuzz
-Fizz
-Buzz
-Fizz
-Fizz
-Buzz
-Fizz
-FizzBuzz
+1. Print "Fizz" if a number is divisible by 3.
+2. Print "Buzz" if a number is divisible by 5.
+3. Print "FizzBuzz" if a number is divisible of both 3 and 5. 
+4. Print "No Buzz" if a number is neither divisible by 3 or 5.
 
-PROGRAM:
-------------------------------------
-for i in range(1,31):
-    if (i%3==0 and i%5==0):
-        print('FizzBuzz')
-    elif (i%5==0):
-        print('Buzz')
-    elif(i%3==0):
-        print('Fizz')
+
+Input Format:
+2 integer numbers entered on separate lines.
+
+Output Format:
+Print either "Fizz, Buzz, "FizzBuzz" or "No Buzz" accordingly on separate lines.
+
+constraints: 
+----------------
+first integr a should be in the range of 1<=a<100
+second integer b should be in the range of 2<=b<100
+
+'''
+#(Note: Including first integer and excluding second integer)
+#if a and be not withing the mentioned range print the error message as "Enter valid range"
+
+
+'''sample test case:
+---------------------
+input=
+2
+10
+output=
+No Buzz
+Fizz
+No Buzz
+Buzz
+Fizz
+No Buzz
+No Buzz
+Fizz
+
+Explaination: In the above test case, starting number is and ending number is 10 (except 10)
+                2 is not divisible by either 3 or 5 hence first output is No Buzz.
+                3 is divisible by 3 hence second output is Fizz
+                and so On....
+
+'''
+#write ur code below
+
+a=int(input())
+b=int(input())
+if not (1 <=a < 100 and 2 <=b < 100):
+    print("Enter valid range")
+else:
+    for i in range(a,b):
+        if (i%3==0 and i%5==0):
+            print('FizzBuzz')
+        elif (i%5==0):
+            print('Buzz')
+        elif(i%3==0):
+            print('Fizz')
+        else:
+            print('No Buzz')
+
 
 2. Arun is working in an office which is N blocks away from his house. He wants to minimize the time it takes him to go from his house to the office.
 He can either take the office cab or he can walk to the office.
