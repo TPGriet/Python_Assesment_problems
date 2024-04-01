@@ -353,6 +353,38 @@ input=99
 output=not a harshad number
 PROGRAM:
 ---------------------------
+a = input()
+num = int(a)
+sum = 0
+temp = num
+while temp > 0:
+    sum += temp % 10
+    temp //= 10
+
+if num % sum == 0:
+    print("harshad number")
+else:
+    print("not a harshad number")
+
+# a = input()
+# if int(a) % sum([int(i) for i in a]) == 0:
+#     print("harshad number")
+# else:
+#     print("not a harshad number")
+    
+
+# a = input()
+# sum = sum(map(int, a))
+
+# if int(a) % sum == 0:
+#     print("harshad number")
+# else:
+#     print("not a harshad number")
+    
+    
+# a=input()
+# print("harshad number") if (int(a))%(sum([int(i) for i in a]))==0 else print("not a harshad number")
+
 a=input()
 print("harshad number") if (int(a))%(sum([int(i) for i in a]))==0 else print("not a harshad number")
 
