@@ -138,7 +138,7 @@ output=
 
 PROGRAM:
 ---------------------------------------------
-L = eval(input())
+L = eval(input())   #integers = list(map(int, input_str.split(',')))
 for x in L:
     print('{:07.2f}rs'.format(x*1.18))
 
